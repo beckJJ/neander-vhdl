@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 -- Company: 
--- Engineer:
+-- Engineer: Pedro Company Beck
 --
 -- Create Date:   10:09:39 07/25/2023
 -- Design Name:   
@@ -43,7 +43,9 @@ ARCHITECTURE behavior OF testbench1 IS
     PORT(
          rst : IN  std_logic;
          clk : IN  std_logic;
-         outMEM : OUT  std_logic_vector(7 downto 0)
+         outHalt : OUT  std_logic;
+			outPC : OUT STD_LOGIC_VECTOR(7 downto 0);
+			outAC : OUT STD_LOGIC_VECTOR(7 downto 0)
         );
     END COMPONENT;
     
@@ -53,7 +55,9 @@ ARCHITECTURE behavior OF testbench1 IS
    signal clk : std_logic := '0';
 
  	--Outputs
-   signal outMEM : std_logic_vector(7 downto 0);
+   signal outHalt : std_logic;
+	signal outPC: STD_LOGIC_VECTOR(7 downto 0);
+	signal outAC: STD_LOGIC_VECTOR(7 downto 0);
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
@@ -64,7 +68,9 @@ BEGIN
    uut: neander PORT MAP (
           rst => rst,
           clk => clk,
-          outMEM => outMEM
+          outHalt => outHalt,
+			 outPC => outPC,
+			 outAC => outAC
         );
 
    -- Clock process definitions
@@ -86,6 +92,8 @@ BEGIN
       wait for clk_period*10;
 
       -- insert stimulus here 
+		rst <= '1';
+		wait for 1000000ns;
 
       wait;
    end process;

@@ -10,7 +10,7 @@ Total CPU time to Xst completion: 0.09 secs
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: neander.prj
 
@@ -107,15 +107,11 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-WARNING:HDLParsers:3607 - Unit work/neander is now defined in a different file.  It was defined in "C:/Users/beck/projects/placa1/neander.vhd", and is now defined in "C:/Users/beck/projects/neander-vhdl/placa1/neander.vhd".
-WARNING:HDLParsers:3607 - Unit work/neander/Behavioral is now defined in a different file.  It was defined in "C:/Users/beck/projects/placa1/neander.vhd", and is now defined in "C:/Users/beck/projects/neander-vhdl/placa1/neander.vhd".
-WARNING:HDLParsers:3607 - Unit work/mem1 is now defined in a different file.  It was defined in "C:/Users/beck/projects/placa1/ipcore_dir/mem1.vhd", and is now defined in "C:/Users/beck/projects/neander-vhdl/placa1/ipcore_dir/mem1.vhd".
-WARNING:HDLParsers:3607 - Unit work/mem1/mem1_a is now defined in a different file.  It was defined in "C:/Users/beck/projects/placa1/ipcore_dir/mem1.vhd", and is now defined in "C:/Users/beck/projects/neander-vhdl/placa1/ipcore_dir/mem1.vhd".
 Compiling vhdl file "C:/Users/beck/projects/neander-vhdl/placa1/ipcore_dir/mem1.vhd" in Library work.
-Entity <mem1> compiled.
-Entity <mem1> (Architecture <mem1_a>) compiled.
+Architecture mem1_a of Entity mem1 is up to date.
 Compiling vhdl file "C:/Users/beck/projects/neander-vhdl/placa1/neander.vhd" in Library work.
-Architecture behavioral of Entity neander is up to date.
+Entity <neander> compiled.
+Entity <neander> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -127,7 +123,10 @@ Analyzing hierarchy for entity <neander> in library <work> (architecture <behavi
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <neander> in library <work> (Architecture <behavioral>).
-WARNING:Xst:2211 - "C:/Users/beck/projects/neander-vhdl/placa1/neander.vhd" line 82: Instantiating black box module <mem1>.
+WARNING:Xst:2211 - "C:/Users/beck/projects/neander-vhdl/placa1/neander.vhd" line 84: Instantiating black box module <mem1>.
+WARNING:Xst:819 - "C:/Users/beck/projects/neander-vhdl/placa1/neander.vhd" line 149: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <saidaPC>
+INFO:Xst:2679 - Register <outHalt> in unit <neander> has a constant value of 1 during circuit operation. The register is replaced by logic.
 Entity <neander> analyzed. Unit <neander> generated.
 
 
@@ -154,10 +153,12 @@ WARNING:Xst:646 - Signal <readMEM> is assigned but never used. This unconnected 
     | Encoding           | automatic                                      |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 8-bit latch for signal <outAC>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <outPC>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Using one-hot encoding for signal <selALU>.
     Found 8-bit register for signal <saidaAC>.
     Found 8-bit addsub for signal <saidaALU$addsub0000>.
-    Found 8-bit xor2 for signal <saidaALU$xor0000> created at line 347.
+    Found 8-bit xor2 for signal <saidaALU$xor0000> created at line 349.
     Found 2-bit register for signal <saidaNZ>.
     Found 8-bit up counter for signal <saidaPC>.
     Found 8-bit register for signal <saidaREM>.
@@ -183,6 +184,8 @@ Macro Statistics
  1-bit register                                        : 4
  2-bit register                                        : 1
  8-bit register                                        : 2
+# Latches                                              : 2
+ 8-bit latch                                           : 2
 # Xors                                                 : 1
  8-bit xor2                                            : 1
 
@@ -220,6 +223,8 @@ Macro Statistics
  8-bit up counter                                      : 1
 # Registers                                            : 22
  Flip-Flops                                            : 22
+# Latches                                              : 2
+ 8-bit latch                                           : 2
 # Xors                                                 : 1
  8-bit xor2                                            : 1
 
@@ -234,11 +239,12 @@ Optimizing unit <neander> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block neander, actual ratio is 7.
+Found area constraint ratio of 100 (+ 5) on block neander, actual ratio is 8.
 FlipFlop saidaRI_0 has been replicated 1 time(s)
 FlipFlop saidaRI_1 has been replicated 1 time(s)
 FlipFlop saidaRI_2 has been replicated 1 time(s)
 FlipFlop saidaRI_3 has been replicated 1 time(s)
+FlipFlop state_FSM_FFd5 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -246,8 +252,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 41
- Flip-Flops                                            : 41
+# Registers                                            : 42
+ Flip-Flops                                            : 42
 
 =========================================================================
 
@@ -273,37 +279,39 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 10
+# IOs                              : 19
 
 Cell Usage :
-# BELS                             : 178
+# BELS                             : 194
 #      GND                         : 2
 #      INV                         : 1
 #      LUT1                        : 7
-#      LUT2                        : 13
-#      LUT2_D                      : 2
-#      LUT3                        : 32
+#      LUT2                        : 9
+#      LUT2_D                      : 3
+#      LUT2_L                      : 1
+#      LUT3                        : 40
 #      LUT3_D                      : 2
-#      LUT3_L                      : 8
-#      LUT4                        : 57
-#      LUT4_D                      : 7
-#      LUT4_L                      : 8
+#      LUT3_L                      : 6
+#      LUT4                        : 68
+#      LUT4_D                      : 10
+#      LUT4_L                      : 7
 #      MUXCY                       : 14
-#      MUXF5                       : 7
+#      MUXF5                       : 6
 #      VCC                         : 2
 #      XORCY                       : 16
-# FlipFlops/Latches                : 41
-#      FDC                         : 7
+# FlipFlops/Latches                : 58
+#      FDC                         : 8
 #      FDCE                        : 8
 #      FDE                         : 25
 #      FDP                         : 1
+#      LDE                         : 16
 # RAMS                             : 1
 #      RAMB16_S36_S36              : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 9
+# IO Buffers                       : 18
 #      IBUF                        : 1
-#      OBUF                        : 8
+#      OBUF                        : 17
 =========================================================================
 
 Device utilization summary:
@@ -311,11 +319,11 @@ Device utilization summary:
 
 Selected Device : 3s100evq100-5 
 
- Number of Slices:                       72  out of    960     7%  
- Number of Slice Flip Flops:             41  out of   1920     2%  
- Number of 4 input LUTs:                137  out of   1920     7%  
- Number of IOs:                          10
- Number of bonded IOBs:                  10  out of     66    15%  
+ Number of Slices:                       82  out of    960     8%  
+ Number of Slice Flip Flops:             58  out of   1920     3%  
+ Number of 4 input LUTs:                154  out of   1920     8%  
+ Number of IOs:                          19
+ Number of bonded IOBs:                  19  out of     66    28%  
  Number of BRAMs:                         1  out of      4    25%  
  Number of GCLKs:                         1  out of     24     4%  
 
@@ -340,24 +348,26 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 42    |
+clk                                | BUFGP                  | 43    |
+state_FSM_FFd5                     | NONE(outPC_0)          | 16    |
 -----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-rst                                | IBUF                   | 16    |
+rst                                | IBUF                   | 17    |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 8.834ns (Maximum Frequency: 113.197MHz)
+   Minimum period: 8.558ns (Maximum Frequency: 116.850MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 6.248ns
+   Maximum output required time after clock: 4.137ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -366,64 +376,89 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 8.834ns (frequency: 113.197MHz)
-  Total number of paths / destination ports: 2983 / 100
+  Clock period: 8.558ns (frequency: 116.850MHz)
+  Total number of paths / destination ports: 2767 / 101
 -------------------------------------------------------------------------
-Delay:               8.834ns (Levels of Logic = 8)
-  Source:            saidaRI_1 (FF)
+Delay:               8.558ns (Levels of Logic = 12)
+  Source:            state_FSM_FFd1 (FF)
   Destination:       saidaNZ_0 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: saidaRI_1 to saidaNZ_0
+  Data Path: state_FSM_FFd1 to saidaNZ_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             16   0.514   1.031  saidaRI_1 (saidaRI_1)
-     LUT2:I0->O            2   0.612   0.383  cargaAC_or0000111 (N25)
-     LUT4_D:I3->O          3   0.612   0.520  saidaALU<0>215 (saidaALU<0>215)
-     LUT3:I1->O            1   0.612   0.360  saidaALU<0>2138_SW0 (N26)
-     LUT4:I3->O            1   0.612   0.000  saidaALU<3>34_SW0_G (N86)
-     MUXF5:I1->O           1   0.278   0.387  saidaALU<3>34_SW0 (N43)
-     LUT4:I2->O            2   0.612   0.449  saidaALU<3>54 (saidaALU<3>)
-     LUT4:I1->O            1   0.612   0.360  nzALU_0_cmp_eq000028_SW0_SW0_SW0 (N58)
+     FDC:C->Q             11   0.514   0.862  state_FSM_FFd1 (state_FSM_FFd1)
+     LUT2_D:I1->LO         1   0.612   0.103  entradaMEM<0>1_SW0 (N157)
+     LUT4:I3->O            9   0.612   0.727  saidaALU_mux0000 (saidaALU_mux0000)
+     LUT3:I2->O            1   0.612   0.000  Maddsub_saidaALU_addsub0000_lut<0> (Maddsub_saidaALU_addsub0000_lut<0>)
+     MUXCY:S->O            1   0.404   0.000  Maddsub_saidaALU_addsub0000_cy<0> (Maddsub_saidaALU_addsub0000_cy<0>)
+     MUXCY:CI->O           1   0.051   0.000  Maddsub_saidaALU_addsub0000_cy<1> (Maddsub_saidaALU_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.051   0.000  Maddsub_saidaALU_addsub0000_cy<2> (Maddsub_saidaALU_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.052   0.000  Maddsub_saidaALU_addsub0000_cy<3> (Maddsub_saidaALU_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.052   0.000  Maddsub_saidaALU_addsub0000_cy<4> (Maddsub_saidaALU_addsub0000_cy<4>)
+     XORCY:CI->O           1   0.699   0.360  Maddsub_saidaALU_addsub0000_xor<5> (saidaALU_addsub0000<5>)
+     LUT4:I3->O            2   0.612   0.383  saidaALU<5>51 (saidaALU<5>)
+     LUT4:I3->O            1   0.612   0.360  nzALU_0_cmp_eq000028_SW0_SW0_SW0 (N124)
      LUT4:I3->O            1   0.612   0.000  nzALU_0_cmp_eq000028 (nzALU<0>)
      FDE:D                     0.268          saidaNZ_0
     ----------------------------------------
-    Total                      8.834ns (5.344ns logic, 3.490ns route)
-                                       (60.5% logic, 39.5% route)
+    Total                      8.558ns (5.763ns logic, 2.795ns route)
+                                       (67.3% logic, 32.7% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 8 / 8
+Timing constraint: Default period analysis for Clock 'state_FSM_FFd5'
+  Clock period: 1.878ns (frequency: 532.496MHz)
+  Total number of paths / destination ports: 16 / 16
 -------------------------------------------------------------------------
-Offset:              6.248ns (Levels of Logic = 2)
-  Source:            memoria/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram (RAM)
-  Destination:       outMEM<7> (PAD)
-  Source Clock:      clk rising
+Delay:               1.878ns (Levels of Logic = 1)
+  Source:            outPC_0 (LATCH)
+  Destination:       outPC_0 (LATCH)
+  Source Clock:      state_FSM_FFd5 falling
+  Destination Clock: state_FSM_FFd5 falling
 
-  Data Path: memoria/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram to outMEM<7>
+  Data Path: outPC_0 to outPC_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB16_S36_S36:CLKB->DOB24    8   2.436   0.643  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram (douta<7>)
-     end scope: 'memoria'
-     OBUF:I->O                 3.169          outMEM_7_OBUF (outMEM<7>)
+     LDE:G->Q              2   0.588   0.410  outPC_0 (outPC_0)
+     LUT3:I2->O            1   0.612   0.000  outPC_mux0003<0>1 (outPC_mux0003<0>)
+     LDE:D                     0.268          outPC_0
     ----------------------------------------
-    Total                      6.248ns (5.605ns logic, 0.643ns route)
-                                       (89.7% logic, 10.3% route)
+    Total                      1.878ns (1.468ns logic, 0.410ns route)
+                                       (78.2% logic, 21.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'state_FSM_FFd5'
+  Total number of paths / destination ports: 16 / 16
+-------------------------------------------------------------------------
+Offset:              4.137ns (Levels of Logic = 1)
+  Source:            outPC_7 (LATCH)
+  Destination:       outPC<7> (PAD)
+  Source Clock:      state_FSM_FFd5 falling
+
+  Data Path: outPC_7 to outPC<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDE:G->Q              2   0.588   0.380  outPC_7 (outPC_7)
+     OBUF:I->O                 3.169          outPC_7_OBUF (outPC<7>)
+    ----------------------------------------
+    Total                      4.137ns (3.757ns logic, 0.380ns route)
+                                       (90.8% logic, 9.2% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 5.75 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.81 secs
  
 --> 
 
-Total memory usage is 4513592 kilobytes
+Total memory usage is 4513596 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    6 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :    5 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
 

@@ -30,7 +30,9 @@ entity neander is
 	Port ( 
 		rst: in STD_LOGIC;
 		clk: in STD_LOGIC;
-		outHalt: out STD_LOGIC
+		outHalt: out STD_LOGIC;
+		outPC: out STD_LOGIC_VECTOR(7 downto 0);
+		outAC: out STD_LOGIC_VECTOR(7 downto 0)
 	);
 end neander;
 
@@ -197,6 +199,8 @@ begin
 					
 			elsif saidaRI = "1111" then -- HLT
 				outHalt <= '1';
+				outPC <= saidaPC;
+				outAC <= saidaAC;
 			end if;
 				
 			when t4 =>
