@@ -30,7 +30,7 @@ entity neander is
 	Port ( 
 		rst: in STD_LOGIC;
 		clk: in STD_LOGIC;
-		outMEM: out STD_LOGIC_VECTOR(7 downto 0)
+		outHalt: out STD_LOGIC
 	);
 end neander;
 
@@ -88,8 +88,6 @@ memoria : mem1
     douta => saidaMEM
   );
   
-outMEM <= saidaMEM;
-
 process(clk, rst) -- state machine
 begin
 	if rst = '1' then
@@ -198,7 +196,7 @@ begin
 				incPC  <= '1';
 					
 			elsif saidaRI = "1111" then -- HLT
-				-- halt
+				outHalt <= '1';
 			end if;
 				
 			when t4 =>
