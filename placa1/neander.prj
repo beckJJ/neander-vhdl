@@ -1,0 +1,2 @@
+vhdl work "ipcore_dir/mem1.vhd"
+vhdl work "neander.vhd"
