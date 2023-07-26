@@ -1,0 +1,35 @@
+0: NOP
+1-2: LDA 128
+3-4: ADD 137
+5-6: STA 146
+-- self-modifying code
+7-8: LDA 2
+9-10: ADD 127
+11-12: STA 2
+
+13-14: LDA 4
+15-16: ADD 127
+17-18: STA 4
+
+19-20: LDA 6
+21-22: ADD 127
+23-24: STA 6
+-- inc counter
+25-26: LDA 126
+27-28: ADD 127
+
+-- jz to hlt
+29-30: JZ 35
+-- else
+31-32: STA 126
+33-34: JMP 1
+
+35: HLT
+
+-- data
+126: 247
+127: 1
+
+128 - 136: matrix A
+137 - 145: matrix B
+146 - 154: output
