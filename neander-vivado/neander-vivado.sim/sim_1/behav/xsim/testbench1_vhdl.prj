@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../neander-vivado.srcs/sources_1/imports/placa1/neander.vhd" \
+"../../../../neander-vivado.srcs/sources_1/imports/placa1/testbench1.vhd" \
+
+# Do not sort compile order
+nosort

@@ -22,22 +22,52 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="placa1.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="neander.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="neander.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="neander.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="neander.ncd" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="neander.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="neander.ngd"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="neander.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="neander.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="neander.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="neander.pcf" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="neander.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="neander.ptwx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="neander.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="neander.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="neander.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="neander.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="neander.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="neander.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="neander.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="neander_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="neander_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="neander_isim_beh.exe"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="neander_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="neander_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="neander_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="neander_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="neander_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="neander_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="neander_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="neander_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="neander_par.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="neander_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="neander_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="neander_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="neander_usage.xml"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="neander_vhdl.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="neander_xst.xrpt"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="testbench1_beh.prj"/>
@@ -46,42 +76,43 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="testbench1_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1690290577" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1690290577">
+    <transform xil_pn:end_ts="1690502028" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1690502028">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1690335311" xil_pn:in_ck="8495617605038736846" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1690335311">
+    <transform xil_pn:end_ts="1690503492" xil_pn:in_ck="8495617605038736846" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1690503492">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="neander.vhd"/>
       <outfile xil_pn:name="testbench1.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1690290695" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="1160831107608448743" xil_pn:start_ts="1690290695">
+    <transform xil_pn:end_ts="1690502028" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="1160831107608448743" xil_pn:start_ts="1690502028">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1690290695" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-5162760543428247383" xil_pn:start_ts="1690290695">
+    <transform xil_pn:end_ts="1690502028" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-5162760543428247383" xil_pn:start_ts="1690502028">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1690334951" xil_pn:in_ck="2640053021609092375" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="8494527441338529819" xil_pn:start_ts="1690334951">
+    <transform xil_pn:end_ts="1690504851" xil_pn:in_ck="2640053021609092375" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="8494527441338529819" xil_pn:start_ts="1690504850">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/mem1.ngc"/>
       <outfile xil_pn:name="ipcore_dir/mem1.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1690335313" xil_pn:in_ck="-3784496958960704035" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1690335313">
+    <transform xil_pn:end_ts="1690504851" xil_pn:in_ck="-3784496958960704035" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1690504851">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/mem1.vhd"/>
       <outfile xil_pn:name="neander.vhd"/>
       <outfile xil_pn:name="testbench1.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1690335317" xil_pn:in_ck="-3784496958960704035" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-557227517570814384" xil_pn:start_ts="1690335313">
+    <transform xil_pn:end_ts="1690504856" xil_pn:in_ck="-3784496958960704035" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-557227517570814384" xil_pn:start_ts="1690504851">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -93,7 +124,7 @@
       <outfile xil_pn:name="testbench1_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1690335317" xil_pn:in_ck="-7867377783528095360" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-9114658547032448067" xil_pn:start_ts="1690335317">
+    <transform xil_pn:end_ts="1690566368" xil_pn:in_ck="-7596307827611902196" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-1450465715483507825" xil_pn:start_ts="1690566367">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -110,7 +141,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1690333801" xil_pn:in_ck="2640053021609092375" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="8494527441338529819" xil_pn:start_ts="1690333801">
+    <transform xil_pn:end_ts="1690504807" xil_pn:in_ck="2640053021609092375" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="8494527441338529819" xil_pn:start_ts="1690504807">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/mem1.ngc"/>
@@ -132,7 +163,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1690335284" xil_pn:in_ck="7299822382157609308" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="4640243783730939192" xil_pn:start_ts="1690335276">
+    <transform xil_pn:end_ts="1690504820" xil_pn:in_ck="7299822382157609308" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="4640243783730939192" xil_pn:start_ts="1690504807">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -144,10 +175,64 @@
       <outfile xil_pn:name="neander.stx"/>
       <outfile xil_pn:name="neander.syr"/>
       <outfile xil_pn:name="neander.xst"/>
+      <outfile xil_pn:name="neander_stx_beh.prj"/>
       <outfile xil_pn:name="neander_vhdl.prj"/>
       <outfile xil_pn:name="neander_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1690495020" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="1037374326166014965" xil_pn:start_ts="1690495020">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1690501973" xil_pn:in_ck="7980416582132097864" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-8641024875049567416" xil_pn:start_ts="1690501967">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="neander.bld"/>
+      <outfile xil_pn:name="neander.ngd"/>
+      <outfile xil_pn:name="neander_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1690501979" xil_pn:in_ck="173302491204826468" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-873285459045022562" xil_pn:start_ts="1690501973">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="neander.pcf"/>
+      <outfile xil_pn:name="neander_map.map"/>
+      <outfile xil_pn:name="neander_map.mrp"/>
+      <outfile xil_pn:name="neander_map.ncd"/>
+      <outfile xil_pn:name="neander_map.ngm"/>
+      <outfile xil_pn:name="neander_map.xrpt"/>
+      <outfile xil_pn:name="neander_summary.xml"/>
+      <outfile xil_pn:name="neander_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1690501994" xil_pn:in_ck="7887949007688636029" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="1934304854298957634" xil_pn:start_ts="1690501979">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="neander.ncd"/>
+      <outfile xil_pn:name="neander.pad"/>
+      <outfile xil_pn:name="neander.par"/>
+      <outfile xil_pn:name="neander.ptwx"/>
+      <outfile xil_pn:name="neander.unroutes"/>
+      <outfile xil_pn:name="neander.xpi"/>
+      <outfile xil_pn:name="neander_pad.csv"/>
+      <outfile xil_pn:name="neander_pad.txt"/>
+      <outfile xil_pn:name="neander_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1690501994" xil_pn:in_ck="173302491204826336" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416187" xil_pn:start_ts="1690501990">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="neander.twr"/>
+      <outfile xil_pn:name="neander.twx"/>
     </transform>
   </transforms>
 

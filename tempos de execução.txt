@@ -1,0 +1,3 @@
+programa 1: 11755 ns
+programa 2: 2055 ns
+programa 3: 895 ns
